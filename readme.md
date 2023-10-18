@@ -17,7 +17,7 @@ O Students Sys é um Sistema Web que visa o meio educacional. A Aplicação perm
 
 # Estrutura:
 
-A Estrutura está divida seguindo o padrão de arquitetura MVC - `model`, `view` e `controller`;
+A Estrutura está divida seguindo alguns conceitos de Clean;
 
 - `data` -> Em breve;
 - `domain` -> Em breve;
