@@ -1,4 +1,7 @@
 export * from './departments'
+export * from './export-colaborators'
+export * from './forgot-password'
 export * from './sign-in'
 export * from './sign-up'
+export * from './students-class'
 export * from './users'

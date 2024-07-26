@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { paths } from '~/main/config'
 
+import { useExportColaborators } from '~/data/usecases/hooks'
+
 import { TextField } from '~/presentation/components'
 
-import { BiSearchAlt } from 'react-icons/bi'
+import { BiExport, BiSearchAlt } from 'react-icons/bi'
 import { HiOutlinePlusSm } from 'react-icons/hi'
 
 import {
@@ -14,11 +16,14 @@ import {
 } from './styles'
 
 export const Filters = () => {
+  const { exportColaboratorsToExcel } = useExportColaborators()
+
   return (
     <Container>
       <SearchInputContainer>
         <SearchInputWidth>
           <TextField
+            label='Busca'
             type='text'
             aria-label='Busca rápida'
             placeholder='Digite aqui sua busca'
@@ -31,6 +36,10 @@ export const Filters = () => {
       <RegisterNewUser>
         <Link to={`${paths.signUp}`}> <i><HiOutlinePlusSm /></i> Novo </Link>
       </RegisterNewUser>
+
+      <div>
+        <button type='button' onClick={exportColaboratorsToExcel}><i><BiExport /></i> Exportação</button>
+      </div>
     </Container>
   )
 }

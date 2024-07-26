@@ -9,7 +9,8 @@ import {
   SignIn,
   NotFound,
   Users,
-  Classes
+  Classes,
+  SolicitationReset
 } from '~/presentation/pages'
 
 export const AppRoutes = () => {
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
             <Route path={`${paths.signUp}`} element={<SignUp />} />
             <Route path={`${paths.signIn}`} element={<SignIn />} />
             <Route path={`${paths.notFound}`} element={<NotFound />} />
+            <Route path={`${paths.solicitationReset}`} element={<SolicitationReset />} />
           </Route>
 
           <Route path={`${paths.signIn}`} element={<PrivateRoutes />}>

@@ -16,18 +16,20 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 export type CombinedSelectProps = SelectProps & StyledSelectVariants
 
-export const Select = ({ register, defaultValue = 0, placeholder, label, data, ...rest }: CombinedSelectProps) => (
+export const Select = ({ register, defaultValue = 0, placeholder, error, label, data, ...rest }: CombinedSelectProps) => (
   <Container
     aria-label={label}
     defaultValue={defaultValue}
     name={register?.name}
     ref={register?.ref}
     onChange={register?.onChange}
+    className={error && error === true ? 'with-error' : ''}
+    {...(error && { error: 'true' } )}
     {...rest}
   >
-    <option value={0}>{placeholder ?? 'Selecione uma opção'}</option>
+    <option value={0} className="custom-option">{placeholder ?? 'Selecione uma opção'}</option>
     {data.map((option) => (
-      <option key={option.id} value={option.id}>
+      <option key={option.id} value={option.id} className="custom-option">
         {option.name}
       </option>
     ))}

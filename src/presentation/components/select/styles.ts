@@ -12,7 +12,12 @@ export const Container = styled('select', {
 
   background: '$gray6',
 
+  '&.with-error': { border: '2px solid $red9' },
   '&:hover': { border: '2px solid $gray7' },
   '&:focus': { border: '2px solid $green8', boxShadow: '2px 3px 3px #D1D1D1' },
-  '&::placeholder': { color: '$gray9' }
+  '&::placeholder': { color: '$gray9' },
+
+  '.custom-option': {
+    background: '$gray6',
+  }
 })

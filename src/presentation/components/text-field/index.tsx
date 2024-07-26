@@ -6,7 +6,7 @@ import { Container, InputModel, Icon } from './styles'
 export type StyledInputVariants = Stitches.VariantProps<typeof Container>
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
-  register: UseFormRegisterReturn
+  register?: UseFormRegisterReturn
   label: string
   placeholder?: string
   error?: boolean
@@ -21,12 +21,12 @@ export const TextField = ({ type, register, label, placeholder, error, children,
     <InputModel
       type={type}
       aria-label={label}
-      name={register.name}
-      ref={register.ref}
-      onChange={register.onChange}
+      name={register?.name}
+      ref={register?.ref}
+      onChange={register?.onChange}
       placeholder={placeholder}
-      className={children ? 'with-icon' : ''}
-      {...(error && { error: 'true' })}
+      className={error && error === true ? 'with-error' : '' || children ? 'with-icon' : ''}
+      {...(error && { error: 'true' } )}
       {...rest}
     />
     {children ? <Icon>{children}</Icon> : null}

@@ -1,14 +1,18 @@
 export const paths = {
-  // Frontend
+  // FRONTEND
   notFound: '/*',
   signUp: '/signup',
   signIn: '/',
   users: '/users',
-  classes: '/classes',
+  classes: '/distribuicao/turmas',
+  solicitationReset: '/solicitacao/reset-senha',
 
   // BACKEND
   userAuth: '/signin',
   createNewColaborator: '/signup',
-  allUsers: '/users',
-  departments: '/departments'
+  departments: '/departments',
+  studentsClass: '/students-class',
+  solicitationResetEmail: '/solictation-reset',
+  updatePassword: '/update-password',
+  exportColaborators: '/export-colaborators'
 }

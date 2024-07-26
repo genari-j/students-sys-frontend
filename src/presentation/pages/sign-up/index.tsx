@@ -5,7 +5,7 @@ import { useGetDepartments } from '~/infra/cache/queries'
 import { useSignUp } from '~/data/usecases/hooks'
 
 import { changePageTitle } from '~/main/util'
-import { FaEyeSlash, FaEye } from 'react-icons/fa'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { Title, Label, TextField, Select, Button, Spinner } from '~/presentation/components'
 import {
   Container,
@@ -30,70 +30,75 @@ export const SignUp = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Cadastro</Title>
+        <Title weight='600' color='black8'>Cadastro</Title>
 
         <TextFieldGroupContainer>
           <TextFieldGroupContent>
             <TextFieldGroup>
-              <Label>Nome:</Label>
+              <Label htmlFor='name'>Nome:</Label>
               <TextField
                 type='text'
                 label='Seu nome'
                 placeholder='Nome'
+                id='name'
                 register={register('name')}
                 error={(errors.name != null)}
               />
-              {(errors.name != null) && <Title margin='top' color='error' size='small'>{errors.name.message}</Title>}
+              {(errors.name != null) && <Title margin='top' color='red9' size='sm'>{errors.name.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>E-mail:</Label>
+              <Label htmlFor='email'>E-mail:</Label>
               <TextField
                 type='email'
                 label='Seu e-mail'
                 placeholder='conta@email.com'
+                id='email'
                 register={register('email')}
                 error={(errors.email != null)}
               />
-              {(errors.email != null) && <Title margin='top' color='error' size='small'>{errors.email.message}</Title>}
+              {(errors.email != null) && <Title margin='top' color='red9' size='sm'>{errors.email.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>CPF:</Label>
+              <Label htmlFor='cpf'>CPF:</Label>
               <TextField
                 type='text'
                 label='Seu CPF'
                 placeholder='123456789-00'
+                id='cpf'
                 register={register('cpf')}
                 error={(errors.cpf != null)}
               />
-              {(errors.cpf != null) && <Title margin='top' color='error' size='small'>{errors.cpf.message}</Title>}
+              {(errors.cpf != null) && <Title margin='top' color='red9' size='sm'>{errors.cpf.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Senha:</Label>
+              <Label htmlFor='password'>Senha:</Label>
               <TextField
                 type={passwordState ? "text" : "password"}
                 label='Sua senha'
                 placeholder='Senha'
+                id='password'
                 register={register('password')}
                 {...(errors.password != null && { error: true })}
-                children={<ShowPasswordBtn type='button' onClick={handleShowPassword}>{passwordState ? <FaEyeSlash /> : <FaEye />}</ShowPasswordBtn>}
+                children={<ShowPasswordBtn type='button' onClick={handleShowPassword}>{passwordState ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</ShowPasswordBtn>}
               />
-              {(errors.password != null) && <Title margin='top' color='error' size='small'>{errors.password.message}</Title>}
+              {(errors.password != null) && <Title margin='top' color='red9' size='sm'>{errors.password.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Departamento:</Label>
+              <Label htmlFor='department'>Departamento:</Label>
               <Select
                 label='Departamento'
                 placeholder='Departamento'
                 data={!departments.isLoading && departments.isSuccess ? departments.data?.data.data : []}
+                id='department'
                 register={register('departmentId', { valueAsNumber: true })}
-                {...(errors.departmentId != null && { error: 'true' })}
+                {...(errors.departmentId != null && { error: true })}
                 name='departmentId'
               />
-              {(errors.departmentId != null) && <Title margin='top' color='error' size='small'>{errors.departmentId.message}</Title>}
+              {(errors.departmentId != null) && <Title margin='top' color='red9' size='sm'>{errors.departmentId.message}</Title>}
             </TextFieldGroup>
           </TextFieldGroupContent>
 
@@ -101,87 +106,94 @@ export const SignUp = () => {
 
           <TextFieldGroupContent>
             <TextFieldGroup>
-              <Label>Rua:</Label>
+              <Label htmlFor='street'>Rua:</Label>
               <TextField
                 type='text'
                 label='Sua rua'
                 placeholder='Rua'
+                id='street'
                 register={register('street')}
                 error={(errors.street != null)}
               />
-              {(errors.street != null) && <Title margin='top' color='error' size='small'>{errors.street.message}</Title>}
+              {(errors.street != null) && <Title margin='top' color='red9' size='sm'>{errors.street.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Número:</Label>
+              <Label htmlFor='number'>Número:</Label>
               <TextField
                 type='text'
                 label='Seu número'
                 placeholder='1234'
+                id='number'
                 register={register('number')}
                 error={(errors.number != null)}
               />
-              {(errors.number != null) && <Title margin='top' color='error' size='small'>{errors.number.message}</Title>}
+              {(errors.number != null) && <Title margin='top' color='red9' size='sm'>{errors.number.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Bairro:</Label>
+              <Label htmlFor='neighborhood'>Bairro:</Label>
               <TextField
                 type='text'
                 label='Seu bairro'
                 placeholder='Bairro'
+                id='neighborhood'
                 register={register('neighborhood')}
                 error={(errors.neighborhood != null)}
               />
-              {(errors.neighborhood != null) && <Title margin='top' color='error' size='small'>{errors.neighborhood.message}</Title>}
+              {(errors.neighborhood != null) && <Title margin='top' color='red9' size='sm'>{errors.neighborhood.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Complemento:</Label>
+              <Label htmlFor='complement'>Complemento:</Label>
               <TextField
                 type='text'
                 label='Seu complemento'
+                id='complement'
                 placeholder='Casa / Apt'
                 register={register('complement')}
                 error={(errors.complement != null)}
               />
-              {(errors.complement != null) && <Title margin='top' color='error' size='small'>{errors.complement.message}</Title>}
+              {(errors.complement != null) && <Title margin='top' color='red9' size='sm'>{errors.complement.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Cidade:</Label>
+              <Label htmlFor='city'>Cidade:</Label>
               <TextField
                 type='text'
                 label='Sua cidade'
                 placeholder='Cidade'
+                id='city'
                 register={register('city')}
                 error={(errors.city != null)}
               />
-              {(errors.city != null) && <Title margin='top' color='error' size='small'>{errors.city.message}</Title>}
+              {(errors.city != null) && <Title margin='top' color='red9' size='sm'>{errors.city.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>Estado:</Label>
+              <Label htmlFor='state'>Estado:</Label>
               <TextField
                 type='text'
                 label='Seu estado'
                 placeholder='São Paulo'
+                id='state'
                 register={register('state')}
                 error={(errors.state != null)}
               />
-              {(errors.state != null) && <Title margin='top' color='error' size='small'>{errors.state.message}</Title>}
+              {(errors.state != null) && <Title margin='top' color='red9' size='sm'>{errors.state.message}</Title>}
             </TextFieldGroup>
 
             <TextFieldGroup>
-              <Label>CEP:</Label>
+              <Label htmlFor='cep'>CEP:</Label>
               <TextField
                 type='text'
                 label='Seu CEP'
                 placeholder='12345-123'
+                id='cep'
                 register={register('cep')}
                 error={(errors.cep != null)}
               />
-              {(errors.cep != null) && <Title margin='top' color='error' size='small'>{errors.cep.message}</Title>}
+              {(errors.cep != null) && <Title margin='top' color='red9' size='sm'>{errors.cep.message}</Title>}
             </TextFieldGroup>
           </TextFieldGroupContent>
         </TextFieldGroupContainer>
@@ -189,8 +201,9 @@ export const SignUp = () => {
         <BottomBtnAndMessage>
           <Button
             type='submit'
-            variant='general'
-            color='white'
+            color='white9'
+            size='lg'
+            weight='500'
             disabled={signUp.isLoading}
             >
             {signUp.isLoading ? <Spinner /> : 'Cadastrar'}

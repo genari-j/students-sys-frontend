@@ -4,5 +4,5 @@ export const truncateInformation = (information: any) => {
   if (information.length <= tableMaxharacters) {
     return information
   }
-  return information.slice(0, tableMaxharacters) + ' ...'
+  return information.slice(0, tableMaxharacters) + ' ..'
 }

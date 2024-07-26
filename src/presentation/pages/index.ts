@@ -1,3 +1,4 @@
+export * from './forgot-password'
 export * from './home'
 export * from './not-found'
 export * from './sign-in'

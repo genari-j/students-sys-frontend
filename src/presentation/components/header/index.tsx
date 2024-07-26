@@ -33,7 +33,7 @@ export const Header = ({ showUserInformation }: { showUserInformation: boolean }
                 <GearIcon>
                   <i><BsFillGearFill /></i>
                   <ul>
-                    <li><i><RiLock2Fill /></i> <Link to={`${paths.allUsers}`}>Alterar Senha</Link></li>
+                    <li><i><RiLock2Fill /></i> <Link to={`${paths.signIn}`}>Alterar Senha</Link></li>
                     <li><i><FaUser /></i> <Link to={`${paths.users}`}>Usuários</Link></li>
                     <li><i><GiExitDoor /></i> <button type='button' onClick={handleLogout}>Sair</button></li>
                   </ul>

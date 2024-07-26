@@ -12,8 +12,13 @@ export const useChangeNavigation = () => {
     navigate(paths.users)
   }
 
+  const handleChangeToLogin = () => {
+    navigate(paths.signIn)
+  }
+
   return {
     handleChangeToHome,
-    handleChangeToUsers
+    handleChangeToUsers,
+    handleChangeToLogin
   }
 }

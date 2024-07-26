@@ -22,6 +22,7 @@ export const Textarea = ({ register, label, placeholder, error, ...rest }: Combi
       ref={register.ref}
       onChange={register.onChange}
       placeholder={placeholder}
+      className={error && error === true ? 'with-error' : ''}
       {...(error && { error: 'true' })}
       {...rest}
     >

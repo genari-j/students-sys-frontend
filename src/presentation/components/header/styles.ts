@@ -7,7 +7,8 @@ export const Container = styled('header', {
   justifyContent: 'center',
   alignItems: 'center',
 
-  padding: '2rem 0'
+  padding: '2rem 0',
+  marginBottom: '1rem'
 })
 
 export const Content = styled('div', {

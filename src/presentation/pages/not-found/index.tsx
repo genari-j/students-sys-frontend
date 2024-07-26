@@ -21,7 +21,14 @@ export const NotFound = () => {
         <div>
           <p>Ops, a página não foi encontrada! 💬</p>
           <ButtonBox>
-            <Button variant='general' color='white' onClick={handleChangeToHome}>Voltar</Button>
+            <Button
+              color='white9'
+              size='lg'
+              weight='500'
+              onClick={handleChangeToHome}
+            >
+              Voltar
+            </Button>
           </ButtonBox>
         </div>
 

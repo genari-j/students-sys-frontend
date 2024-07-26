@@ -20,12 +20,13 @@ export const InputModel = styled('input', {
 
   fontSize: '1.1rem',
   padding: '0.5rem 1rem',
-  '&.with-icon': { padding: '0.5rem 2.8rem 0.5rem 1rem'},
   borderRadius: '0.3rem',
-  
+
   border: '2px solid transparent',
   background: 'transparent',
-  
+
+  '&.with-error': { border: '2px solid $red9', },
+  '&.with-icon': { padding: '0.5rem 2.8rem 0.5rem 1rem'},
   '&:hover': { border: '2px solid $gray9' },
   '&:focus': { border: '2px solid $green8', boxShadow: '2px 3px 3px #D1D1D1' },
   '&::placeholder': { color: '$gray9' }
